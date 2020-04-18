@@ -52,11 +52,6 @@ function generatePassword() {
   }
 
   resetarray();
-  console.log(characters[0]);
-  console.log(characters[1]);
-  console.log(characters[2]);
-  console.log(characters[3]);
-  console.log(optionsused);
   return securitygoose;
 };
 
