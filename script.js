@@ -3,20 +3,17 @@ var generateBtn = document.querySelector("#generate");
 
 var characters = ["uselowercase", "useuppercase", "usenumbers", "usespecchar", "length", "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
 
-if (parseInt(characters[4]) <=7) {
-  console.log("Less than 7")
-};
-
 var optionsused = ""
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
+
 function generatePassword() {
   characters[0] = confirm("Use lowercase letters?");
   characters[1] = confirm("Use uppercase letters?");
@@ -37,18 +34,14 @@ function generatePassword() {
   for (var i = 0; i < 4; i++) {
     if (characters[i] == true) {
       optionsused += characters[(i + 5)];
-      console.log(optionsused);
     }
   }
-  
-  var securitygoose = "" 
-  console.log(characters[4])
+
+  var securitygoose = ""
 
   for (var n = characters[4]; n > 0; n--) {
     var rnum = Math.floor(Math.random() * optionsused.length);
-    securitygoose += optionsused.substring(rnum, rnum+1);
-    console.log(rnum);
-    console.log(securitygoose);
+    securitygoose += optionsused.substring(rnum, rnum + 1);
   }
 
   resetarray();
@@ -62,5 +55,7 @@ function resetarray() {
   characters[2] = "usenumbers";
   characters[3] = "usespecchar";
 };
+
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
